@@ -80,13 +80,13 @@ public class DeviceSettings extends PreferenceActivity implements
         mMusicSwitch.setChecked(MusicGestureSwitch.isEnabled(this));
         mMusicSwitch.setOnPreferenceChangeListener(new MusicGestureSwitch());
 
-        mSliderMode = (ListPreference) findPreference(KEY_SLIDER_MODE);
+        /*mSliderMode = (ListPreference) findPreference(KEY_SLIDER_MODE);
         mSliderMode.setOnPreferenceChangeListener(this);
         int sliderMode = Settings.System.getInt(getContentResolver(),
                     Settings.System.BUTTON_EXTRA_KEY_MAPPING, 0);
         int valueIndex = mSliderMode.findIndexOfValue(String.valueOf(sliderMode));
         mSliderMode.setValueIndex(valueIndex);
-        mSliderMode.setSummary(mSliderMode.getEntries()[valueIndex]);
+        mSliderMode.setSummary(mSliderMode.getEntries()[valueIndex]); */
 
         //mSwapBackRecents = (TwoStatePreference) findPreference(KEY_SWAP_BACK_RECENTS);
         //mSwapBackRecents.setChecked(Settings.System.getInt(getContentResolver(),
@@ -102,9 +102,9 @@ public class DeviceSettings extends PreferenceActivity implements
         mHBMModeSwitch.setChecked(HBMModeSwitch.isEnabled(this));
         mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch());
 
-        mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
+        /*mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
         mProxiSwitch.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1) != 0);
+                Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1) != 0); */
     }
 
     @Override
@@ -126,11 +126,11 @@ public class DeviceSettings extends PreferenceActivity implements
                     Settings.System.BUTTON_SWAP_BACK_RECENTS, mSwapBackRecents.isChecked() ? 1 : 0);
             return true;
         }*/
-        if (preference == mProxiSwitch) {
+        /*if (preference == mProxiSwitch) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
             return true;
-        }
+        }*/
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -139,8 +139,8 @@ public class DeviceSettings extends PreferenceActivity implements
         if (preference == mSliderMode) {
             String value = (String) newValue;
             int sliderMode = Integer.valueOf(value);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.BUTTON_EXTRA_KEY_MAPPING, sliderMode);
+            //Settings.System.putInt(getContentResolver(),
+                    //Settings.System.BUTTON_EXTRA_KEY_MAPPING, sliderMode);
             int valueIndex = mSliderMode.findIndexOfValue(value);
             mSliderMode.setSummary(mSliderMode.getEntries()[valueIndex]);
         }

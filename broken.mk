@@ -23,9 +23,6 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
@@ -33,16 +30,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 TARGET_BOOTANIMATION_SIZE := 1080x608
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/broken/config/common_full_phone.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/leeco/le_zl1/device.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := omni_le_zl1
+PRODUCT_NAME := broken_le_zl1
 PRODUCT_DEVICE := le_zl1
 PRODUCT_BRAND := LeEco
-PRODUCT_MODEL := LEX720
+PRODUCT_MODEL := LEX727
 PRODUCT_MANUFACTURER := LeMobile
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
