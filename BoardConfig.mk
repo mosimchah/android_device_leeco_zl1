@@ -203,6 +203,9 @@ BOARD_SECCOMP_POLICY += $(BOARD_PATH)/seccomp
 
 WITH_DEXPREOPT := false
 
+# PDFIUM
+TARGET_NEEDS_PDFIUM_BIGINT := true
+
 # Recovery:Start
 TARGET_RECOVERY_FSTAB := $(BOARD_PATH)/configs/fstab.qcom
 TW_THEME := portrait_hdpi
