@@ -106,6 +106,10 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Device was launched with M
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.first_api_level=23
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8996 \
@@ -216,7 +220,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Camera2 \
+    libcamera_shim \
     libstlport
 
 # power
@@ -225,9 +229,6 @@ PRODUCT_PACKAGES += \
 
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/power_profiles.xml:system/etc/power_profiles.xml
-
-PRODUCT_PACKAGES += \
-    Oneplus3Parts
 
 # bluetooth
 PRODUCT_COPY_FILES += \
@@ -278,3 +279,7 @@ PRODUCT_PACKAGES += \
 # QMI
 PRODUCT_PACKAGES += \
     libjson
+
+# Doze mode
+PRODUCT_PACKAGES += \
+    LeEcoDoze
