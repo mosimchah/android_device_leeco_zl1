@@ -22,31 +22,25 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
-# must be before including omni part
-TARGET_BOOTANIMATION_SIZE := 1080x720
-
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/leeco/le_zl1/device.mk)
 
-# SELinux
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+# must be before including aosip part
+TARGET_BOOTANIMATION_SIZE := 1080x720
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/aosip/common.mk)
 
 PRODUCT_BOOT_JARS += qcom.fmradio
 
+PRODUCT_BUILD_PROP_OVERRIDES += DEVICE_MAINTAINERS="Moshe Barash"
+
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := omni_le_zl1
+PRODUCT_NAME := aosip_le_zl1
 PRODUCT_DEVICE := le_zl1
 PRODUCT_BRAND := LeEco
 PRODUCT_MANUFACTURER := LeMobile
 
+TARGET_VENDOR := leeco
