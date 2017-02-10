@@ -166,8 +166,8 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    LeEcoDoze
+#PRODUCT_PACKAGES += \
+#    LeEcoDoze
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -177,10 +177,6 @@ PRODUCT_PACKAGES += \
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
-
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
 
 # GPS
 PRODUCT_PACKAGES += \
