@@ -20,10 +20,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device
 $(call inherit-product, device/leeco/zl1/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common AICP stuff.
+$(call inherit-product, vendor/aicp/configs/common.mk)		
+$(call inherit-product, vendor/aicp/configs/telephony.mk)
+$(call inherit-product, vendor/aicp/configs/gsm.mk)
 
-PRODUCT_NAME := lineage_zl1
+PRODUCT_NAME := aicp_zl1
 PRODUCT_DEVICE := zl1
 PRODUCT_MANUFACTURER := LeMobile
 PRODUCT_BRAND := LeEco
@@ -33,6 +35,10 @@ PRODUCT_GMS_CLIENTID_BASE := android-letv
 TARGET_VENDOR_PRODUCT_NAME := ZL1_NA
 TARGET_VENDOR_DEVICE_NAME := zl1
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=zl1 PRODUCT_NAME=zl1
+
+# AICP Device Maintainers
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    DEVICE_MAINTAINERS="Moshe Bararsh (mosimchah)"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=LeEco/ZL1_NA/le_zl1:6.0.1/WEXNAOP5801911011S/letv11010404:user/release-keys \
