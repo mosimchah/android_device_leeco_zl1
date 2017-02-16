@@ -362,6 +362,10 @@ persist.camera.imglib.fddsp=1
 # ATFWD
 persist.radio.atfwd.start=false
 
+# HAX - remove ASAP
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+
 # Hardware Info
 ro.device.chipset=Qualcomm MSM8996 Snapdragon 821
 ro.device.cpu=Quad-core (2x2.35 GHz Kryo & 2x2.19 GHz Kryo)

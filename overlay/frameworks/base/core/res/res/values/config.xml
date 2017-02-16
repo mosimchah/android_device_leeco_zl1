@@ -55,7 +55,7 @@
          NOTE: The LeMax 2 brightness uses a different stupidly high range.
          The 0-255 value is converted into the higher range in the lights library -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>7</item>
+        <item>3</item>
         <item>8</item>
         <item>10</item>
         <item>12</item>
@@ -75,7 +75,7 @@
     </integer-array>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">6</integer>
+    <integer name="config_screenBrightnessDim">2</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -406,5 +406,12 @@
         it causes the device to wake up.
         The default is false. -->
    <bool name="config_lidControlsSleep">true</bool>
+
+   <!-- Control the behavior when the user triple presses the power button.
+            0 - Nothing
+            1 - Toggle theater mode setting
+            2 - Brightness boost
+    -->
+    <integer name="config_triplePressOnPowerBehavior">2</integer>
 
 </resources>
